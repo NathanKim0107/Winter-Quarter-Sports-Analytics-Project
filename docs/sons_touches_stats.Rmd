@@ -1,0 +1,199 @@
+---
+title: "BSA_Project_Son"
+author: "Nathan Kim"
+date: "2023-03-11"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+# Author: Nathan Kim
+# Player Possession Comparison t-tests 
+# Date: 03/11/2023
+
+
+```{r Son_Touch_Data}
+# read in excel data into R
+
+library("readxl")
+
+son_touches <- read.csv("C:\\Users\\natha\\Son_Posession_Data - Sheet1.csv")
+
+son_touches
+```
+
+# Hypotheses for Son's Touch Data
+
+$$
+
+# create list of Null Hypotheses and Alternative Hypotheses for (Touches per 90 Minutes, Mid 3rd Touches per 90 Minutes, Attacking 3rd Touches per 90 Minutes, Attacking Penalty Touches per 90 Minutes)
+
+Null: Mean = mean(Touches.per.90) \\
+
+Alternative\ != mean(Touches.per.90) \\
+
+
+Null: Mean = mean(Mid.3rd.Touches.per.90) \\
+
+Alternative\ != mean(Mid.3rd.Touches.per.90) \\
+
+
+Null: Mean = mean(Att.3rd.Touches.per.90) \\
+
+Alternative\ != mean(Att.3rd.Touches.per.90) \\
+
+
+Null: Mean = mean(Att.Pen.Touches.per.90) \\
+
+Alternative\ != mean(Att.Pen.Touches.per.90) \\
+
+$$
+
+
+## T test for Son's Career Average Touches
+
+
+
+```{r touches t test}
+
+attach(son_touches)
+
+# extract the summary values from each category and conduct t-tests with career average values
+
+summary(Touches.per.90)
+
+t.test(Touches.per.90, mu = 40.4) 
+
+# p-value: 0.0123 < 0.05. Reject the Null Hypothesis 
+
+
+summary(Mid.3rd.Touches.per.90)
+
+t.test(Mid.3rd.Touches.per.90, mu = 15) 
+
+# p-value: 0.009092 < 0.05. Reject the Null Hypothesis 
+
+
+summary(Att.3rd.Touches.per.90)
+
+t.test(Att.3rd.Touches.per.90, mu = 21.9)
+
+# p value 0.0714 > 0.05. Fail to reject the Null Hypothesis
+
+
+summary(Att.Pen.Touches.per.90)
+
+t.test(Att.Pen.Touches.per.90, mu = 3.16)
+
+# 0.02115 < 0.05 Reject the Null Hypothesis
+
+```
+
+
+# Hypotheses for Son's Carries Data
+
+
+$$
+
+# create list of Null Hypotheses and Alternative Hypotheses for (Carries into Penalty Area per 90 Minutes, Carries into Final 3rd per 90 Minutes, Carries per 90 Minutes, Progressive Carries per 90 Minutes)
+
+Null: Mean = mean(Carries.into.Penalty.Area.per.90) \\
+
+Alternative\ != mean(Carries.into.Penalty.Area.per.90) \\ 
+
+
+Null: Mean = mean(Carries.into.Final.3rd.per.90) \\
+
+Alternative\ != mean(Carries.into.Penalty.3rd.per.90) \\ 
+
+
+Null: Mean = mean(Carries.per.90) \\
+
+Alternative\ != mean(Carries.per.90) \\ 
+
+
+Null: Mean = mean(Progressive.Carries.per.90) \\
+
+Alternative\ != mean(Progressive.Carries.per.90) \\ 
+
+$$
+
+
+## T test for Son's Career Average Carries
+
+
+```{r carries t test}
+
+attach(son_touches)
+
+# t-tests for Son's career carries average values
+
+summary(Carries.per.90)
+
+t.test(Carries.per.90, mu = 24)
+
+
+summary(Progressive.Carries.per.90)
+
+t.test(Progressive.Carries.per.90, mu = 3.01)
+
+# p value of 0.1631 > 0.05 Fail to Reject the Null Hypothesis
+
+
+summary(Carries.into.Final.3rd.per.90)
+
+t.test(Carries.into.Final.3rd.per.90, mu = 2.09)
+
+# p value of 0.5931 > 0.05 Fail to reject the Null Hypothesis
+
+
+summary(Carries.into.Penalty.Area.per.90)
+
+t.test(Carries.into.Penalty.Area.per.90, mu = 0.87)
+
+# p value 0.03188 < 0.05 Reject the Null Hypothesis
+
+```
+
+
+# Hypotheses for Son's Passes Received Data
+
+
+$$
+
+# Null and Alternative Hypotheses for (Passes Received per 90 Minutes and Progressive Passes Received per 90 Minutes)
+
+Null: Mean = mean(Passes.Received.per.90) \\
+
+Alternative\ != mean(Passes.Received.per.90) \\ 
+
+
+Null: Mean = mean(Progressive.Passes.Received.per.90) \\
+
+Alternative\ != mean(Progressive.Passes.Received.per.90) \\ 
+
+$$
+
+
+# T Tests for Son's Career Passes Received
+
+
+```{r passes received}
+
+attach(son_touches)
+
+# t-tests for Son's career average passes received
+
+summary(Passes.Received.per.90)
+
+t.test(Passes.Received.per.90, mu = 28.1) 
+
+
+summary(Progress.Passes.Received.per.90)
+
+t.test(Progress.Passes.Received.per.90, mu = 6.70)
+
+# p value of 0.1089 > 0.05 Fail to reject the Null Hypothesis
+
+```
