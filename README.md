@@ -1,4 +1,4 @@
-# Winter-Quarter-Sports-Analytics-Project
+# Winter Quarter Sports Analytics Project
 Upload R coding for Bruin Sports Analytics Project in Winter 2023 Quarter
 
 This project will analyze Tottenham Hotspur's left winger, Son Heung Min's possession, carries, and passes received data in 2022-2023. Mnay fans observed how his offensive output decreased significantly from his Golden Boot season in 2021-2022. 
